@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);  
     const toggleDropdown = () => {
       setIsDropdownOpen(!isDropdownOpen);
     };
-  
+
     return (
-      <nav className="bg-violet-400 shadow-2xl">
+      <nav className="bg-slate-800 shadow-2xl">
         <div className="mx-auto">
           <div className="flex justify-left items-center h-13 font-rubik">
             <div className="text-2xl px-5 font-bold text-white">
@@ -17,7 +17,7 @@ function Navbar() {
             <div className="relative">
               <button
                 onClick={toggleDropdown}
-                className="text-white px-4 py-2 hover:bg-violet-500 focus:outline-none h-13 flex items-center"
+                className="text-white px-4 py-2 hover:bg-slate-950 focus:outline-none h-13 flex items-center"
               >
                 Pacientes
                 <svg
@@ -39,18 +39,18 @@ function Navbar() {
               {/* Dropdown Items */}
               {isDropdownOpen && (
                 <div className="absolute right-0 w-48 bg-white border shadow-lg">
-                  <a
-                    href="#"
+                  <Link
+                    to="/paciente/1"
                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                   >
                     Lista de Pacientes
-                  </a>
-                  <a
-                    href="#"
+                  </Link>
+                  <Link
+                    to="/adicionar_paciente"
                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                   >
                     Adicionar Paciente
-                  </a>
+                  </Link>
                 </div>
               )}
             </div>
